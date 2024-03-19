@@ -1,0 +1,3 @@
+../Core/Src/config/clock_config.c:15:6:clock_Init	8	static
+../Core/Src/config/clock_config.c:20:13:System_Clock_Init	88	static
+../Core/Src/config/clock_config.c:74:13:Real_Time_Clock_Init	8	static

@@ -1,0 +1,5 @@
+../Core/Src/config/adc_config.c:24:6:ADC_Init	8	static
+../Core/Src/config/adc_config.c:29:6:ADC_Start	8	static
+../Core/Src/config/adc_config.c:36:13:ADC1_Init	40	static
+../Core/Src/config/adc_config.c:99:13:ADC2_Init	24	static
+../Core/Src/config/adc_config.c:149:13:ADC3_Init	24	static

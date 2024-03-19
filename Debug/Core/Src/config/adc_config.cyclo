@@ -1,0 +1,5 @@
+adc_config.c:24:6:ADC_Init	1
+adc_config.c:29:6:ADC_Start	1
+adc_config.c:36:13:ADC1_Init	4
+adc_config.c:99:13:ADC2_Init	3
+adc_config.c:149:13:ADC3_Init	3

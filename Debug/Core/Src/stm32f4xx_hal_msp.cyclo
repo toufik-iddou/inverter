@@ -1,0 +1,8 @@
+stm32f4xx_hal_msp.c:74:6:HAL_MspInit	1
+stm32f4xx_hal_msp.c:96:6:HAL_ADC_MspInit	7
+stm32f4xx_hal_msp.c:228:6:HAL_ADC_MspDeInit	4
+stm32f4xx_hal_msp.c:296:6:HAL_RTC_MspInit	3
+stm32f4xx_hal_msp.c:329:6:HAL_RTC_MspDeInit	2
+stm32f4xx_hal_msp.c:351:6:HAL_TIM_Base_MspInit	4
+stm32f4xx_hal_msp.c:405:6:HAL_TIM_MspPostInit	2
+stm32f4xx_hal_msp.c:456:6:HAL_TIM_Base_MspDeInit	2

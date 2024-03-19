@@ -1,0 +1,3 @@
+clock_config.c:15:6:clock_Init	1
+clock_config.c:20:13:System_Clock_Init	3
+clock_config.c:74:13:Real_Time_Clock_Init	2
