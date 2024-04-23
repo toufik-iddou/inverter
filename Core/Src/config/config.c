@@ -6,22 +6,21 @@
  */
 
 
-#include"config/adc_config.h"
-#include"config/pwm_config.h"
 #include"config/config.h"
-#include"config/dma_config.h"
-#include"config/gpio_config.h"
 
-void system_Init(void){
+void System_Init(void){
 HAL_Init();
-
+System_Clock_Init();
 GPIO_Init();
-
 DMA_Init();
-
-PWM_Init();
-PWM_Start();
-
+Real_Time_Clock_Init();
+TIM_Init();
 ADC_Init();
-ADC_Start();
+DAC_Init();
 }
+
+void System_Start(void){
+TIM_Start();
+DAC_START();
+}
+

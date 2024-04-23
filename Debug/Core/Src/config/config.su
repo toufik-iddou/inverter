@@ -1,1 +1,2 @@
-../Core/Src/config/config.c:15:6:system_Init	8	static
+../Core/Src/config/config.c:11:6:System_Init	8	static
+../Core/Src/config/config.c:22:6:System_Start	8	static

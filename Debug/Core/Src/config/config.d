@@ -1,5 +1,5 @@
 Core/Src/config/config.o: ../Core/Src/config/config.c \
- ../Core/Inc/config/adc_config.h \
+ ../Core/Inc/config/config.h ../Core/Inc/config/timer_config.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -23,6 +23,8 @@ Core/Src/config/config.o: ../Core/Src/config/config.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
@@ -32,9 +34,11 @@ Core/Src/config/config.o: ../Core/Src/config/config.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Core/Inc/config/pwm_config.h ../Core/Inc/config/config.h \
- ../Core/Inc/config/dma_config.h ../Core/Inc/config/gpio_config.h
-../Core/Inc/config/adc_config.h:
+ ../Core/Inc/config/adc_config.h ../Core/Inc/config/dma_config.h \
+ ../Core/Inc/config/gpio_config.h ../Core/Inc/config/clock_config.h \
+ ../Core/Inc/config/dac_config.h
+../Core/Inc/config/config.h:
+../Core/Inc/config/timer_config.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
@@ -58,6 +62,8 @@ Core/Src/config/config.o: ../Core/Src/config/config.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
@@ -67,7 +73,8 @@ Core/Src/config/config.o: ../Core/Src/config/config.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
-../Core/Inc/config/pwm_config.h:
-../Core/Inc/config/config.h:
+../Core/Inc/config/adc_config.h:
 ../Core/Inc/config/dma_config.h:
 ../Core/Inc/config/gpio_config.h:
+../Core/Inc/config/clock_config.h:
+../Core/Inc/config/dac_config.h:

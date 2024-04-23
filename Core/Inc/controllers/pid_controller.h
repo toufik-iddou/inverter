@@ -9,10 +9,10 @@
 #define INC_CONTROLLERS_PID_CONTROLLER_H_
 
 /* Private includes ----------------------------------------------------------*/
+#include <config/timer_config.h>
 #include <math.h>
 #include <stdint.h>
 #include "system_variables.h"
-#include "config/pwm_config.h"
 
 /* Private Macros ----------------------------------------------------------*/
 #define   	kP_E	0.1839

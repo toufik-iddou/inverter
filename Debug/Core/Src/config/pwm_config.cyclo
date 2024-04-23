@@ -1,3 +1,0 @@
-pwm_config.c:21:6:PWM_Init	1
-pwm_config.c:24:6:PWM_Start	1
-pwm_config.c:34:13:TIM8_Init	8

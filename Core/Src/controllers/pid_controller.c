@@ -9,6 +9,7 @@
 #include "controllers/pid_controller.h"
 #include "models/pwm_model.h"
 #include <stdbool.h>
+#include "config/dac_config.h"
 /* Private Constants ----------------------------------------------------------*/
 #ifdef PRODUCTION_MOD
 const float sin_V_ref[101]={};
@@ -17,7 +18,7 @@ const float sin_V_ref[101]={};
 #ifdef DEVELOPMENT_MODE
 float sin_V_ref[101];
 #endif
-uint8_t sin_ref_index=0;
+uint8_t sin_ref_index=-1;
 bool sin_ref_signe=false;
 float sum_V_error=0;
 /* Private Functions ----------------------------------------------------------*/
@@ -39,7 +40,8 @@ static float calculate_V_ref(float Vo,float If,float I_ref);
 #ifdef DEVELOPMENT_MODE
 static void init_sin_V_ref(){
  	for ( int i=0;i<=N_ECH/4;i++){
- 		sin_V_ref[i]=(V_REF_MAX*sin(i*2*PI/N_ECH));
+ 		sin_V_ref[i]=(V_REF_MAX*sin(i*2*PI/(N_ECH)));
+
  	}
 }
 #endif
@@ -63,10 +65,11 @@ static void caclulate_sin_ref_index(){
 		sin_ref_index_direction = -1;
 	}
 	sin_ref_index+=sin_ref_index_direction;
+
 }
 
 static float calculate_V_error(float Vo){
-	float error = (sin_V_ref[sin_ref_index])-Vo;
+	float error = sin_ref_signe ? (sin_V_ref[sin_ref_index])-Vo : (-sin_V_ref[sin_ref_index])-Vo;
 	sum_V_error += error;
 	return error;
 }
@@ -79,11 +82,19 @@ static float calculate_V_ref(float Vo,float If,float I_ref){	// current loop
 	return (Vo + kP_I*(I_ref - If));
 }
 
+float Vout ;
+
 float calculate_PID_V_ref(float If,float Io,float Vo){
 	caclulate_sin_ref_index();
 	float V_error = calculate_V_error(Vo);
 	float I_ref = calculate_if_ref(Vo,Io,V_error);
 	float V_ref =  calculate_V_ref(Vo,If,I_ref);
+	if(sin_ref_signe){
+		Vout = (float) (1.5*sin_V_ref[sin_ref_index]/(V_REF_MAX))+1.5;
+
+		}else{
+			Vout =- (float) (1.5*sin_V_ref[sin_ref_index]/(V_REF_MAX))+1.5;
+		}
+		DAC_SetValue(Vout);
 	return V_ref;
-	//return (uint16_t) (PWM_TIM_period*V_ref/V_ref_max);
 }

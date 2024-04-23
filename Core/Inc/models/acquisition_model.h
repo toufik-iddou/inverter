@@ -18,10 +18,15 @@
 
 /* Private Variables ----------------------------------------------------------*/
 
-/* Private Functions ----------------------------------------------------------*/
-float calculate_Vo();
-float calculate_Io();
-float calculate_If();
+/* Private Structs ----------------------------------------------------------*/
 
+typedef struct Acquisition_Data {
+float  If;
+float  Io;
+float  Vo;
+} Acquisition_Data;
+
+/* Private Functions ----------------------------------------------------------*/
+Acquisition_Data Start_Data_Conversion(void);
 
 #endif /* INC_MODELS_ACQUISITION_MODEL_H_ */

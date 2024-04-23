@@ -1,0 +1,5 @@
+../Core/Src/models/acquisition_model.c:22:18:Start_Data_Conversion	1
+../Core/Src/models/acquisition_model.c:38:14:Calculate_If	1
+../Core/Src/models/acquisition_model.c:43:14:Calculate_Io	1
+../Core/Src/models/acquisition_model.c:47:14:Calculate_Vo	1
+../Core/Src/models/acquisition_model.c:52:14:Input_Voltage	1

@@ -24,6 +24,7 @@
 #include <math.h>
 //#include "models/pwm_model.h"
 #include "config/config.h"
+#include "models/pwm_model.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,21 +45,28 @@
 /* Private variables ---------------------------------------------------------*/
 
 
-
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 
-/* USER CODE BEGIN PFP */
 
+/* USER CODE BEGIN PFP */
+int i =0;
+bool start_adc = false;
+void set_start_adc (bool adc){
+	start_adc=adc;
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc){
+	PWM_Generate();
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_3);
 
-
+}
 /* USER CODE END 0 */
 
 /**
@@ -67,6 +75,7 @@
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -74,7 +83,6 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-
 
   /* USER CODE BEGIN Init */
 
@@ -90,9 +98,9 @@ int main(void)
   /* Initialize all configured peripherals */
 
   /* USER CODE BEGIN 2 */
-  system_Init();
-  //system_Init();
-
+  System_Init();
+  PWM_Model_Init();
+  System_Start();
 
   /* USER CODE END 2 */
 
@@ -100,12 +108,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+//i++;
+//HAL_Delay(500);
+	  if(start_adc){
+		  start_adc=false;
+		  ADC_Start();
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
+
+
+
 
 #ifdef  USE_FULL_ASSERT
 /**

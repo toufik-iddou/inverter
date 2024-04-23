@@ -1,1 +1,4 @@
-../Core/Src/main.c:68:5:main	8	static
+../Core/Src/main.c:62:6:EnableTiming	4	static
+../Core/Src/main.c:81:6:set_start_adc	16	static
+../Core/Src/main.c:88:6:HAL_ADC_ConvCpltCallback	16	static
+../Core/Src/main.c:99:5:main	32	static

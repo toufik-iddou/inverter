@@ -12,11 +12,17 @@
 /* Private includes ----------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 /* Private Macros ----------------------------------------------------------*/
-#define DMA_LENGHT 3
+#define ADC_CHANNELS_LENGHT 3
 /* Private Constants ----------------------------------------------------------*/
 
-/* Private Variables ----------------------------------------------------------*/
-extern uint16_t buffer_adc[DMA_LENGHT];
+/* Private Enums ----------------------------------------------------------*/
+enum ADC_CHANNELS_ENUM{
+	If_CHANNEL,
+	Io_CHANNEL,
+	Vo_CHANNEL,
+};
+/* External Variables ----------------------------------------------------------*/
+extern uint16_t buffer_adc[ADC_CHANNELS_LENGHT];
 /* Private Functions ----------------------------------------------------------*/
 void ADC_Init(void);
 void ADC_Start(void);

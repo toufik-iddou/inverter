@@ -20,7 +20,7 @@
 
 
 /* Private Functions ----------------------------------------------------------*/
-void PWM_generate(void);
-
+void PWM_Generate(void);
+void PWM_Model_Init(void);
 
 #endif /* INC_MODELS_PWM_MODEL_H_ */

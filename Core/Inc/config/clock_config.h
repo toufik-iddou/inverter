@@ -17,7 +17,7 @@
 /* Private Variables ----------------------------------------------------------*/
 
 /* Private Functions ----------------------------------------------------------*/
-void clock_Init(void);
-
+void Real_Time_Clock_Init(void);
+void System_Clock_Init(void);
 
 #endif /* INC_CONFIG_CLOCK_CONFIG_H_ */

@@ -1,0 +1,5 @@
+../Core/Src/config/dac_config.c:19:6:DAC_Init	1
+../Core/Src/config/dac_config.c:23:6:DAC_START	1
+../Core/Src/config/dac_config.c:27:6:DAC_SetValue	1
+../Core/Src/config/dac_config.c:32:17:DAC_Get_Voltage_Value	1
+../Core/Src/config/dac_config.c:41:13:DAC_Out_Init	3
