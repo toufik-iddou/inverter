@@ -25,6 +25,7 @@
 //#include "models/pwm_model.h"
 #include "config/config.h"
 #include "models/pwm_model.h"
+#include "models/pwm_model.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -34,12 +35,33 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+//****************************************************************************
 
+volatile unsigned int *DWT_CYCCNT   = (volatile unsigned int *)0xE0001004;
+volatile unsigned int *DWT_CONTROL  = (volatile unsigned int *)0xE0001000;
+volatile unsigned int *DWT_LAR      = (volatile unsigned int *)0xE0001FB0;
+volatile unsigned int *SCB_DHCSR    = (volatile unsigned int *)0xE000EDF0;
+volatile unsigned int *SCB_DEMCR    = (volatile unsigned int *)0xE000EDFC;
+volatile unsigned int *ITM_TER      = (volatile unsigned int *)0xE0000E00;
+volatile unsigned int *ITM_TCR      = (volatile unsigned int *)0xE0000E80;
+
+//****************************************************************************
+
+static int Debug_ITMDebug = 0;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+void EnableTiming(void)
+{
+  if ((*SCB_DHCSR & 1) && (*ITM_TER & 1)) // Enabled?
+    Debug_ITMDebug = 1;
 
+  *SCB_DEMCR |= 0x01000000;
+  *DWT_LAR = 0xC5ACCE55; // enable access
+  *DWT_CYCCNT = 0; // reset the counter
+  *DWT_CONTROL |= 1 ; // enable the counter
+}
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -54,7 +76,7 @@
 
 /* USER CODE BEGIN PFP */
 int i =0;
-bool start_adc = false;
+volatile bool start_adc = false;
 void set_start_adc (bool adc){
 	start_adc=adc;
 }
@@ -64,10 +86,11 @@ void set_start_adc (bool adc){
 /* USER CODE BEGIN 0 */
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc){
 	PWM_Generate();
+
 	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_3);
 
 }
-/* USER CODE END 0 */
+	/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -101,6 +124,12 @@ int main(void)
   System_Init();
   PWM_Model_Init();
   System_Start();
+  EnableTiming();
+  *DWT_CYCCNT = 0;
+  TIM1->CCR1= 84000/4;
+//  TIM1->CCR2= 4000;
+//  TIM1->CCR3=0;
+//  PWM_Generate();
 
   /* USER CODE END 2 */
 

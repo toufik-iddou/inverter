@@ -223,7 +223,8 @@ void TIM1_UP_TIM10_IRQHandler(void)
 void TIM1_CC_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_CC_IRQn 0 */
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3,1);
+//	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3,1);
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_3);
 	set_start_adc (true);
 
 

@@ -21,6 +21,6 @@ DAC_Init();
 
 void System_Start(void){
 TIM_Start();
-DAC_START();
+DAC_Start();
 }
 

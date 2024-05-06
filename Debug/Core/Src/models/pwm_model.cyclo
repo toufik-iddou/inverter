@@ -1,4 +1,2 @@
-../Core/Src/models/pwm_model.c:20:6:PWM_Generate	1
-../Core/Src/models/pwm_model.c:27:6:PWM_Model_Init	1
-../Core/Src/models/pwm_model.c:31:14:calculate_Duty_Cycle	1
-../Core/Src/models/pwm_model.c:35:13:PWM_Genearte_GPIO	1
+../Core/Src/models/pwm_model.c:52:6:PWM_Generate	7
+../Core/Src/models/pwm_model.c:141:6:PWM_Model_Init	1

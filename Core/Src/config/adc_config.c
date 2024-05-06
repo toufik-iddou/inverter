@@ -71,7 +71,7 @@ static void ADC1_Init(void)
 
 	  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
 	  */
-	  sConfig.Channel = ADC_CHANNEL_3;
+	  sConfig.Channel = ADC_CHANNEL_6;
 	  sConfig.Rank = 3;
 	  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
 	  {

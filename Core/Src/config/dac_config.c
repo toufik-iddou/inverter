@@ -12,7 +12,7 @@
 
 static uint16_t  DAC_Get_Voltage_Value(float voltage);
 static void DAC_Out_Init(void);
-uint16_t vlotage_val = 0;
+
 DAC_HandleTypeDef hdac;
 
 
@@ -20,12 +20,16 @@ void DAC_Init(void){
 	DAC_Out_Init();
 }
 
-void DAC_START(void){
+void DAC_Start(void){
 	HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
 }
 
-void DAC_SetValue(float val){
-	vlotage_val=(uint32_t) DAC_Get_Voltage_Value(val);
+void DAC_SetValue(uint32_t val){
+	 HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2,DAC_ALIGN_12B_R,val);
+}
+
+void DAC_SetVoltage(float voltage){
+	 uint32_t vlotage_val= DAC_Get_Voltage_Value(voltage);
 	 HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2,DAC_ALIGN_12B_R,vlotage_val);
 }
 

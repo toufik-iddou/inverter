@@ -1,3 +1,2 @@
-../Core/Src/config/timer_config.c:17:6:TIM_Init	8	static
+../Core/Src/config/timer_config.c:17:6:TIM_Init	96	static
 ../Core/Src/config/timer_config.c:24:6:TIM_Start	8	static
-../Core/Src/config/timer_config.c:39:13:TIM1_Init	96	static

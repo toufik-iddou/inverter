@@ -1,5 +1,1 @@
-../Core/Src/models/acquisition_model.c:22:18:Start_Data_Conversion	64	static
-../Core/Src/models/acquisition_model.c:38:14:Calculate_If	16	static
-../Core/Src/models/acquisition_model.c:43:14:Calculate_Io	16	static
-../Core/Src/models/acquisition_model.c:47:14:Calculate_Vo	16	static
-../Core/Src/models/acquisition_model.c:52:14:Input_Voltage	32	static
+../Core/Src/models/acquisition_model.c:26:18:Start_Data_Conversion	56	static

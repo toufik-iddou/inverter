@@ -36,7 +36,7 @@ Core/Src/models/pwm_model.o: ../Core/Src/models/pwm_model.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Core/Inc/controllers/pid_controller.h ../Core/Inc/system_variables.h \
  ../Core/Inc/models/pwm_model.h ../Core/Inc/models/acquisition_model.h \
- ../Core/Inc/config/adc_config.h
+ ../Core/Inc/config/adc_config.h ../Core/Inc/config/dac_config.h
 ../Core/Inc/config/timer_config.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -77,3 +77,4 @@ Core/Src/models/pwm_model.o: ../Core/Src/models/pwm_model.c \
 ../Core/Inc/models/pwm_model.h:
 ../Core/Inc/models/acquisition_model.h:
 ../Core/Inc/config/adc_config.h:
+../Core/Inc/config/dac_config.h:

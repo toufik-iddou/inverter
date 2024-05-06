@@ -1,7 +1,2 @@
-../Core/Src/controllers/pid_controller.c:41:13:init_sin_V_ref	2
 ../Core/Src/controllers/pid_controller.c:49:6:init_pid_controller	1
-../Core/Src/controllers/pid_controller.c:58:13:caclulate_sin_ref_index	3
-../Core/Src/controllers/pid_controller.c:71:14:calculate_V_error	2
-../Core/Src/controllers/pid_controller.c:77:14:calculate_if_ref	1
-../Core/Src/controllers/pid_controller.c:81:14:calculate_V_ref	1
-../Core/Src/controllers/pid_controller.c:87:7:calculate_PID_V_ref	2
+../Core/Src/controllers/pid_controller.c:87:7:calculate_PID_V_ref	4
