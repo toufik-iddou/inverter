@@ -13,7 +13,7 @@
 #include <stdint.h>
 #include "stm32f4xx_hal.h"
 /* Private Macros ----------------------------------------------------------*/
-#define   	TS	0.00005
+#define   	TS	0.00005f
 #define		PWM_TIM_period	8400-1
 
 /* Private Constants ----------------------------------------------------------*/

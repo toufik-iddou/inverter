@@ -60,7 +60,7 @@ Acquisition_Data Start_Data_Conversion(void){
 	//data.Io=(Io_input_voltage);
 
 //	data.Vo=(Vo_input_voltage);
-	DAC_SetValue(2);
+	DAC_SetValue(2,DAC_CHANNEL_1);
 	return data;
 }
 

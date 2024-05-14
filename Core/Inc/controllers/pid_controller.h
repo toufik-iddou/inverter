@@ -15,17 +15,29 @@
 #include "system_variables.h"
 
 /* Private Macros ----------------------------------------------------------*/
-#define   	kP_E	0.1839
-#define   	kI_E	183.8707
-#define   	kP_I	6.2831
+#define   	kP_E	0.1839f
+#define   	kI_E	183.8707f
+#define   	kP_I	6.2831f
+
+#ifdef DEVELOPMENT_MODE
 #define		N_ECH 1/(TS*V_REF_FREQUENY)
+#endif
+#ifdef PRODUCTION_MODE
+#define		N_ECH 400
+#endif
+
 #define   	WINDUP_MAX 	1000
 #define   	WINDUP_MIN 	-1000
 
 /* Private Constants ----------------------------------------------------------*/
 
 /* Private Variables ----------------------------------------------------------*/
-
+#ifdef PRODUCTION_MODE
+extern const float sin_V_ref[400];
+#endif
+#ifdef DEVELOPMENT_MODE
+extern float sin_V_ref[400];
+#endif
 /* Private Functions ----------------------------------------------------------*/
 /*	initialization	*/
 void init_pid_controller();

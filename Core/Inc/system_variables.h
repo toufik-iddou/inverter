@@ -10,16 +10,16 @@
 
 /* Environment Macros ----------------------------------------------------------*/
 
-#define PRODUCTION_MODE
-//#define DEVELOPMENT_MODE
+//#define PRODUCTION_MODE
+#define DEVELOPMENT_MODE
 
 /* Specification Macros ----------------------------------------------------------*/
 #define V_REF_FREQUENY 50	//HZ
-#define V_REF_MAX	230*1.4142	// V
+#define V_REF_MAX	30.00f	// V
 #define POWER_MAX	1000	//	W
-#define	V_IN	60	// V
+#define	V_IN	60.0f	// V
 
 /* System Macros ----------------------------------------------------------*/
-#define		PI	3.1416
+#define		PI	3.1416f
 
 #endif /* INC_SYSTEM_VARIABLES_H_ */

@@ -21,16 +21,17 @@ void DAC_Init(void){
 }
 
 void DAC_Start(void){
+	HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
 	HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
 }
 
-void DAC_SetValue(uint32_t val){
-	 HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2,DAC_ALIGN_12B_R,val);
+void DAC_SetValue(uint32_t val,uint32_t Channel){
+	 HAL_DAC_SetValue(&hdac, Channel,DAC_ALIGN_12B_R,val);
 }
 
-void DAC_SetVoltage(float voltage){
+void DAC_SetVoltage(float voltage,uint32_t Channel){
 	 uint32_t vlotage_val= DAC_Get_Voltage_Value(voltage);
-	 HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2,DAC_ALIGN_12B_R,vlotage_val);
+	 HAL_DAC_SetValue(&hdac, Channel,DAC_ALIGN_12B_R,vlotage_val);
 }
 
 static uint16_t DAC_Get_Voltage_Value(float voltage){
@@ -44,22 +45,33 @@ static uint16_t DAC_Get_Voltage_Value(float voltage){
   */
 static void DAC_Out_Init(void)
 {
-  DAC_ChannelConfTypeDef sConfig = {0};
 
-  /** DAC Initialization
-  */
-  hdac.Instance = DAC;
-  if (HAL_DAC_Init(&hdac) != HAL_OK)
-  {
-    Error_Handler();
-  }
+	  DAC_ChannelConfTypeDef sConfig = {0};
 
-  /** DAC channel OUT2 config
-  */
-  sConfig.DAC_Trigger = DAC_TRIGGER_NONE;
-  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
-  if (HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
+
+	  /** DAC Initialization
+	  */
+	  hdac.Instance = DAC;
+	  if (HAL_DAC_Init(&hdac) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+
+	  /** DAC channel OUT1 config
+	  */
+	  sConfig.DAC_Trigger = DAC_TRIGGER_NONE;
+	  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+	  if (HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_1) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+
+	  /** DAC channel OUT2 config
+	  */
+	  if (HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_2) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+
+
 }

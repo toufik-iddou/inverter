@@ -37,7 +37,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/config/timer_config.h ../Core/Inc/config/adc_config.h \
  ../Core/Inc/config/dma_config.h ../Core/Inc/config/gpio_config.h \
  ../Core/Inc/config/clock_config.h ../Core/Inc/config/dac_config.h \
- ../Core/Inc/models/pwm_model.h
+ ../Core/Inc/models/pwm_model.h ../Core/Inc/models/if_observer_model.h \
+ ../Core/Inc/controllers/pid_controller.h ../Core/Inc/system_variables.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -82,3 +83,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/config/clock_config.h:
 ../Core/Inc/config/dac_config.h:
 ../Core/Inc/models/pwm_model.h:
+../Core/Inc/models/if_observer_model.h:
+../Core/Inc/controllers/pid_controller.h:
+../Core/Inc/system_variables.h:

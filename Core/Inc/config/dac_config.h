@@ -20,8 +20,8 @@
 /* Private Functions ----------------------------------------------------------*/
 void DAC_Init(void);
 void DAC_Start(void);
-void DAC_SetVoltage(float voltage);
-void DAC_SetValue(uint32_t val);
+void DAC_SetVoltage(float voltage,uint32_t Channel);
+void DAC_SetValue(uint32_t val,uint32_t Channel);
 
 
 #endif /* INC_CONFIG_DAC_CONFIG_H_ */

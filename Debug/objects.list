@@ -13,6 +13,7 @@
 "./Core/Src/sysmem.o"
 "./Core/Src/system_stm32f4xx.o"
 "./Core/Src/models/acquisition_model.o"
+"./Core/Src/models/if_observer_model.o"
 "./Core/Src/models/pwm_model.o"
 "./Core/Src/unit/error_handler.o"
 "./Core/Startup/startup_stm32f407vetx.o"

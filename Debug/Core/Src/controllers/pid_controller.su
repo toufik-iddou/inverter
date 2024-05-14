@@ -1,2 +1,2 @@
-../Core/Src/controllers/pid_controller.c:49:6:init_pid_controller	0	static
-../Core/Src/controllers/pid_controller.c:87:7:calculate_PID_V_ref	32	static
+../Core/Src/controllers/pid_controller.c:50:6:init_pid_controller	32	static
+../Core/Src/controllers/pid_controller.c:88:7:calculate_PID_V_ref	16	static

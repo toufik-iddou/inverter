@@ -1,4 +1,4 @@
 ../Core/Src/config/dac_config.c:19:6:DAC_Init	16	static
-../Core/Src/config/dac_config.c:23:6:DAC_Start	0	static
-../Core/Src/config/dac_config.c:27:6:DAC_SetValue	0	static
-../Core/Src/config/dac_config.c:31:6:DAC_SetVoltage	8	static
+../Core/Src/config/dac_config.c:23:6:DAC_Start	8	static
+../Core/Src/config/dac_config.c:28:6:DAC_SetValue	0	static
+../Core/Src/config/dac_config.c:32:6:DAC_SetVoltage	8	static

@@ -6,14 +6,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Src/models/acquisition_model.c \
+../Core/Src/models/if_observer_model.c \
 ../Core/Src/models/pwm_model.c 
 
 OBJS += \
 ./Core/Src/models/acquisition_model.o \
+./Core/Src/models/if_observer_model.o \
 ./Core/Src/models/pwm_model.o 
 
 C_DEPS += \
 ./Core/Src/models/acquisition_model.d \
+./Core/Src/models/if_observer_model.d \
 ./Core/Src/models/pwm_model.d 
 
 
@@ -24,7 +27,7 @@ Core/Src/models/%.o Core/Src/models/%.su Core/Src/models/%.cyclo: ../Core/Src/mo
 clean: clean-Core-2f-Src-2f-models
 
 clean-Core-2f-Src-2f-models:
-	-$(RM) ./Core/Src/models/acquisition_model.cyclo ./Core/Src/models/acquisition_model.d ./Core/Src/models/acquisition_model.o ./Core/Src/models/acquisition_model.su ./Core/Src/models/pwm_model.cyclo ./Core/Src/models/pwm_model.d ./Core/Src/models/pwm_model.o ./Core/Src/models/pwm_model.su
+	-$(RM) ./Core/Src/models/acquisition_model.cyclo ./Core/Src/models/acquisition_model.d ./Core/Src/models/acquisition_model.o ./Core/Src/models/acquisition_model.su ./Core/Src/models/if_observer_model.cyclo ./Core/Src/models/if_observer_model.d ./Core/Src/models/if_observer_model.o ./Core/Src/models/if_observer_model.su ./Core/Src/models/pwm_model.cyclo ./Core/Src/models/pwm_model.d ./Core/Src/models/pwm_model.o ./Core/Src/models/pwm_model.su
 
 .PHONY: clean-Core-2f-Src-2f-models
 

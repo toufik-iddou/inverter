@@ -26,6 +26,9 @@
 #include "config/config.h"
 #include "models/pwm_model.h"
 #include "models/pwm_model.h"
+#include "models/if_observer_model.h"
+#include "controllers/pid_controller.h"
+#include "system_variables.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -36,7 +39,9 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 //****************************************************************************
+void EnableTiming(void);
 
+#ifdef DEVELOPMENT_MODE
 volatile unsigned int *DWT_CYCCNT   = (volatile unsigned int *)0xE0001004;
 volatile unsigned int *DWT_CONTROL  = (volatile unsigned int *)0xE0001000;
 volatile unsigned int *DWT_LAR      = (volatile unsigned int *)0xE0001FB0;
@@ -49,9 +54,6 @@ volatile unsigned int *ITM_TCR      = (volatile unsigned int *)0xE0000E80;
 
 static int Debug_ITMDebug = 0;
 /* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
 void EnableTiming(void)
 {
   if ((*SCB_DHCSR & 1) && (*ITM_TER & 1)) // Enabled?
@@ -62,6 +64,10 @@ void EnableTiming(void)
   *DWT_CYCCNT = 0; // reset the counter
   *DWT_CONTROL |= 1 ; // enable the counter
 }
+#endif
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -75,7 +81,7 @@ void EnableTiming(void)
 
 
 /* USER CODE BEGIN PFP */
-int i =0;
+
 volatile bool start_adc = false;
 void set_start_adc (bool adc){
 	start_adc=adc;
@@ -113,7 +119,6 @@ int main(void)
 
   /* Configure the system clock */
 
-
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -123,10 +128,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
   System_Init();
   PWM_Model_Init();
+  init_pid_controller();
   System_Start();
+#ifdef DEVELOPMENT_MODE
   EnableTiming();
   *DWT_CYCCNT = 0;
-  TIM1->CCR1= 84000/4;
+#endif
+  TIM1->CCR1= 0;
+
 //  TIM1->CCR2= 4000;
 //  TIM1->CCR3=0;
 //  PWM_Generate();
@@ -137,8 +146,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//i++;
-//HAL_Delay(500);
 	  if(start_adc){
 		  start_adc=false;
 		  ADC_Start();
